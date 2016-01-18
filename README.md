@@ -29,7 +29,7 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-* Add log component target in the main config components section:
+* Add log component target and module in the main config components section:
 ```
     'components' => [
     ...
@@ -38,20 +38,25 @@ Usage
                 [
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
-                    'logTable' => 'log_error',
+                    'logTable' => '{{%log_error}}',
                     'except' => [
                         'yii\web\HttpException:404',
                         'yii\web\HttpException:403',
+                        'yii\web\HttpException:400',
                         'yii\i18n\PhpMessageSource::loadMessages'
                     ],
                 ],
             ]
         ]
     ],
+    'modules' => [
+        ...
+        'log' => [
+            'class' => 'bariew\logModule\Module'
+        ]
+    ],
 ```
 
+* Apply migrations from the module migrations folder.
 
-* Apply migrations from module migrations folder. E.g. you may copy those migrations to your application migrations folder and run
-    common yii console migration command.
-
-* Go to log/error/index URL and see system errors.
+* Go to log/error/index URL
