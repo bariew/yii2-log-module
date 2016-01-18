@@ -2,6 +2,9 @@
 
 namespace bariew\logModule\controllers;
 
+use bariew\logModule\controllers\actions\ErrorDelete;
+use bariew\logModule\controllers\actions\ErrorIndex;
+use bariew\logModule\controllers\actions\ErrorView;
 use Yii;
 use bariew\logModule\models\Error;
 use bariew\logModule\models\ErrorSearch;
@@ -27,43 +30,15 @@ class ErrorController extends Controller
     }
 
     /**
-     * Lists all Error models.
-     * @return mixed
+     * @inheritdoc
      */
-    public function actionIndex()
+    public function actions()
     {
-        $searchModel = new ErrorSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single Error model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Deletes an existing Error model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        return [
+            'delete' => ErrorDelete::className(),
+            'view' => ErrorView::className(),
+            'index' => ErrorIndex::className(),
+        ];
     }
 
     /**
