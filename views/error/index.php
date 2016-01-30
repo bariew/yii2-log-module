@@ -10,11 +10,12 @@ $this->params['breadcrumbs'][] = $this->title;
  * @var ErrorSearch $searchModel
  */
 ?>
-<div>
-    <?= \yii\helpers\Html::a(Yii::t('app', 'Delete all'), ['delete-all'],
-        ['class' => 'btn btn-danger pull-right'])  ?>
-    <br/>
-</div>
+<?= \yii\helpers\Html::a('<i class="glyphicon glyphicon-trash" /> '
+    . Yii::t('app', 'delete all'),
+    ['delete-all'],
+    ['class' => 'btn btn-danger pull-right'])
+?>
+<br /><br />
 <?php echo GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
