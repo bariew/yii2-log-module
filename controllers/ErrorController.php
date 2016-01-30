@@ -3,6 +3,7 @@
 namespace bariew\logModule\controllers;
 
 use bariew\logModule\controllers\actions\ErrorDelete;
+use bariew\logModule\controllers\actions\ErrorDeleteAll;
 use bariew\logModule\controllers\actions\ErrorIndex;
 use bariew\logModule\controllers\actions\ErrorView;
 use Yii;
@@ -38,6 +39,7 @@ class ErrorController extends Controller
             'delete' => ErrorDelete::className(),
             'view' => ErrorView::className(),
             'index' => ErrorIndex::className(),
+            'delete-all' => ErrorDeleteAll::className(),
         ];
     }
 
