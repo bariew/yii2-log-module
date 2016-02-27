@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
  * @var ErrorSearch $searchModel
  */
 ?>
-<?= \yii\helpers\Html::a('<i class="glyphicon glyphicon-trash" /> '
+<?= \yii\helpers\Html::a('<i class="glyphicon glyphicon-trash"></i>'
     . Yii::t('app', 'delete all'),
     ['delete-all'],
     ['class' => 'btn btn-danger pull-right'])
