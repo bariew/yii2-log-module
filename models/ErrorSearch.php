@@ -10,6 +10,7 @@ namespace bariew\logModule\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\log\Logger;
 
 /**
  * Error represents the model behind the search form about `common\modules\log\models\Error`.
@@ -46,8 +47,6 @@ class ErrorSearch extends Error
         $t = self::tableName();
         $query = Error::find();
         $query->orderBy(["$t.log_time" => SORT_DESC]);
-        $query->andWhere(['!=', $t.'.category', 'application']);
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
