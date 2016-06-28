@@ -14,13 +14,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist bariew/yii2-log-module "*"
+php composer.phar require --prefer-dist bariew/yii2-log-module "1.0.1"
 ```
 
 or add
 
 ```
-"bariew/yii2-log-module": "*"
+"bariew/yii2-log-module": "1.0.1"
 ```
 
 to the require section of your `composer.json` file.
