@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= \yii\helpers\Html::a('<i class="glyphicon glyphicon-trash"></i>'
     . Yii::t('app', 'delete all'),
     ['delete-all'],
-    ['class' => 'btn btn-danger pull-right'])
+    ['class' => 'btn btn-danger pull-right', 'data-method' => 'post', 'data-confirm' => 'Delete all logs?'])
 ?>
 <br /><br />
 <?php echo GridView::widget([

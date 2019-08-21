@@ -18,6 +18,9 @@ use yii\filters\VerbFilter;
  */
 class ErrorController extends Controller
 {
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
@@ -25,6 +28,7 @@ class ErrorController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'delete-all' => ['POST'],
                 ],
             ],
         ];
